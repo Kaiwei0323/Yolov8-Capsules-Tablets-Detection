@@ -27,6 +27,14 @@ An application using Yolov8 for capsules and tablets detection
     https://universe.roboflow.com/pills-l7v0j/pills-thesis
 ```
 
+## Pill Database Reference
+```
+    https://www.webmd.com/pill-identification/default.htm
+```
+```
+    https://www.drugs.com/imprints.php
+```
+
 ## Environment Setup
 ```
     pip install -r requirements.txt
