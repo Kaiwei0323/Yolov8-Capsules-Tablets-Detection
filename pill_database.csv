@@ -4,10 +4,10 @@ Acetaminophen,Tablet,White,Round,"AZ,011",NA
 Acetaminophen,Tablet,White,Oblong,L484,NA
 Acetaminophen,Tablet,White,Round,"44,104",NA
 Acetaminophen,Tablet,White,Round,"54,27",NA
-Acetaminophen,Tablet,White,Round,013,LOGO
+Acetaminophen,Tablet,White,Round,13,LOGO
 Acetaminophen,Tablet,"Red,Light Blue",Round,"PH,020",NA
 Acetaminophen,Capsule,White,Oblong,G1,G1
-Acetaminophen,Tablet,White,Round,012,NA
+Acetaminophen,Tablet,White,Round,12,NA
 Acetaminophen,Tablet,White,Oblong,G650,NA
 Acetaminophen,Tablet,Red,Oblong,"M2A4,57344",NA
 Acetaminophen,Tablet,White,Round,"44,531",NA
@@ -34,7 +34,7 @@ Acetaminophen,Tablet,White,Round,"M2A3,57344",NA
 Acetaminophen,Tablet,White,Round,"TCL,340",NA
 Acetaminophen,Tablet,White,Oblong,TCL341,NA
 Acetaminophen,Tablet,White,Round,"M2A4,57344",NA
-Acetaminophen,Tablet,White,Oblong,I,06
+Acetaminophen,Tablet,White,Oblong,I,6
 Acetaminophen,Tablet,White,Round,"GPI,A325",NA
 Acetaminophen,Tablet,White,Round,"MLX,123",NA
 Vicodin,Tablet,White,Oblong,M367,NA
@@ -224,9 +224,9 @@ Tizanidine,Capsule,Violet,Oblong,1113,NA
 Tizanidine,Capsule,"Violet,White",Oblong,1112,NA
 Tramadol,Tablet,White,Oblong,377,NA
 Tramadol,Tablet,White,Round,"AN,627",NA
-Tramadol,Tablet,White,Oblong,018,NA
+Tramadol,Tablet,White,Oblong,18,NA
 Tramadol,Tablet,White,Oval,101,OUYI
-Tramadol,Tablet,White,Oblong,019,NA
+Tramadol,Tablet,White,Oblong,19,NA
 Tramadol,Tablet,White,Oval,TV,58
 Tramadol,Tablet,Pale Yellow,Oblong,"355,U",NA
 Tramadol,Tablet,Pale Yellow,Oblong,355U,NA
@@ -235,14 +235,14 @@ Tramadol,Tablet,White,Oval,93,58
 Tramadol,Tablet,White,Oval,58,TV
 Naproxen,Tablet,Light Blue,Round,L490,NA
 Naproxen,Tablet,Light Blue,Oval,L368,NA
-Clonazapem,Tablet,White,Round,C,1/2
+Clonazapem,Tablet,White,Round,C,1?2?
 Clonazapem,Tablet,White,Round,"L,527",NA
 Clonazapem,Tablet,White,Round,"L,525",NA
 Clonazapem,Tablet,White,Round,"L,524",NA
 Clonazapem,Tablet,White,Round,K7,NA
 Clonazapem,Tablet,White,Round,"B,98",2
 Clonazapem,Tablet,White,Round,"B,97",1
-Clonazapem,Tablet,White,Round,1/8,"B,94"
+Clonazapem,Tablet,White,Round,1?8?,"B,94"
 Clonazapem,Tablet,White,Round,K9,NA
 Clonazapem,Tablet,White,Round,K8,NA
 Clonazapem,Tablet,White,Round,K6,NA
@@ -258,10 +258,10 @@ Amoxicillin,Capsule,"Blue,Pink",Oblong,NA,A44
 Amoxicillin,Tablet,Pink,Oblong,A,66
 Amoxicillin,Tablet,White,Oblong,WW951,NA
 Amoxicillin,Capsule,Caramel Buff,Oblong,TEVA,3107
-Amoxicillin,Capsule,Caramel Buff,Oblong,"93,3107","93,3107"
+Amoxicillin,Capsule,Caramel Buff,Oblong,"933,107","933,107"
 Amoxicillin,Tablet,White,Oblong,"GG,962",875
 Amoxicillin,Tablet,White,Oblong,GG961,500
-Amoxicillin,Capsule,Buff,Oblong,"93,3109","93,3109"
+Amoxicillin,Capsule,Buff,Oblong,"933,109","933,109"
 Amoxicillin,Capsule,Buff,Oblong,TEVA,3109
 Amoxicillin,Tablet,White,Oblong,93,2263
 Amoxicillin,Capsule,Caramel Buff,Oblong,AA,820
@@ -282,10 +282,10 @@ Alprazolam,Tablet,White,Oval,G3719,NA
 Alprazolam,Tablet,Blue,Oval,G3721,NA
 Alprazolam,Tablet,Peach,Oval,G3720,NA
 Alprazolam,Tablet,Blue,Round,31,LOGO
-Alprazolam,Tablet,Peach,Round,029,LOGO
+Alprazolam,Tablet,Peach,Round,29,LOGO
 Alprazolam,Tablet,White,Oval,Y,"1,8"
 Alprazolam,Tablet,White,Oval,B704,NA
-Alprazolam,Tablet,White,Round,LOGO,027
+Alprazolam,Tablet,White,Round,LOGO,27
 Alprazolam,Tablet,White,Oval,"S,900",NA
 Alprazolam,Tablet,White,Round,"MYLAN,A4",NA
 Alprazolam,Tablet,Green,Rectangular,"S,90,3",NA
@@ -306,7 +306,7 @@ Alprazolam,Tablet,Blue,Oval,605,NA
 Alprazolam,Tablet,White,Oval,603,NA
 Alprazolam,Tablet,Yellow,Oval,"S,901",NA
 Alprazolam,Tablet,Orange,Oval,"N,A",0.5
-Alprazolam,Tablet,Blue,Oval,"N,A",1.0
+Alprazolam,Tablet,Blue,Oval,"N,A",1
 Bactrim,Tablet,White,Oval,H49,NA
 Bactrim,Tablet,White,Round,"IP,271",NA
 Bactrim,Tablet,White,Round,H48,NA
@@ -314,3 +314,134 @@ Bactrim,Tablet,White,Round,"MP,81",NA
 Bactrim,Tablet,White,Oval,"MP,85",NA
 Bactrim,Tablet,White,Oblong,"VP,120",NA
 Bactrim,Tablet,White,Oval,"IP,272",NA
+Pravastatin,Tablet,White,Round,APO,"PRA,20"
+Pravastatin,Tablet,Yellow,Rectangular,PB,2
+Pravastatin,Tablet,Light Pink,Round,"PRA,10",APO
+Pravastatin,Tablet,Light Green,Round,"PRA,40",APO
+Pravastatin,Tablet,Yellow,Rectangular,G5,20
+Pravastatin,Tablet,Yellow,Round,G5,10
+Pravastatin,Tablet,White,Round,"PRA,80",APO
+Pravastatin,Tablet,White,Oval,B80,NA
+Pravastatin,Tablet,White,Oval,ZC45,NA
+Pravastatin,Tablet,Light Green,Rectangular,PB,8
+Pravastatin,Tablet,Green,Rectangular,G5,40
+Pravastatin,Tablet,Yellow,Oval,G5,80
+Pravastatin,Tablet,Yellow,Oval,PB,4
+Pravastatin,Tablet,Pink,Rectangular,PB,1
+Pravastatin,Tablet,White,Oval,RDY,274
+Pravastatin,Tablet,White,Round,RDY,231
+Pravastatin,Tablet,White,Round,RDY,230
+Pravastatin,Tablet,White,Round,RDY,229
+Pravastatin,Tablet,White,Oval,TEVA,7270
+Pravastatin,Tablet,Light Green,Round,TEVA,7202
+Pravastatin,Tablet,Light Yellow,Round,TEVA,7201
+Pravastatin,Tablet,Pink,Round,TEVA,771
+Pravastatin,Tablet,Light Yellow,Round,93,7201
+Pravastatin,Tablet,White,Oblong,LOGO,PV80
+Pravastatin,Tablet,White,Oval,93,7270
+Pravastatin,Tablet,White,Oval,TEVA,7270
+Pravastatin,Tablet,Light Green,Round,93,7202
+Pravastatin,Tablet,Light Green,Round,TEVA,7202
+Pravastatin,Tablet,Pink,Round,93,771
+Pravastatin,Tablet,White,Oval,ZC44,NA
+Pravastatin,Tablet,White,Oval,ZC46,NA
+Pravastatin,Tablet,Light Brown,Round,"HLP,40",NA
+Pravastatin,Tablet,Light Brown,Round,"HLP,10",NA
+Acyclovir,Tablet,White,Round,Y212,NA
+Acyclovir,Tablet,White,Oval,"LOGO,5307",NA
+Acyclovir,Capsule,Blue,Oblong,CP115,200
+Acyclovir,Capsule,"White,Aqua Blue",Oblong,APO,042
+Acyclovir,Tablet,Light Blue,Oblong,S042,NA
+Acyclovir,Tablet,White,Round,S047,NA
+Acyclovir,Tablet,White,Oval,"CTI,112",NA
+Acyclovir,Capsule,"Blue,White",Oblong,668,NA
+Acyclovir,Tablet,White,Oval,792,NA
+Acyclovir,Tablet,White,Oval,"LOGO,5306",NA
+Acyclovir,Capsule,"Aqua Blue,Light Blue",Oblong,200,"CTI,114"
+Acyclovir,Tablet,Light Blue,Oval,800,CP113
+Acyclovir,Tablet,White,Oval,400,CP114
+Acyclovir,Capsule,White,Oblong,RX652,RX652
+Acyclovir,Tablet,White,Oblong,Y213,NA
+Acyclovir,Tablet,White,Round,"HP,227",NA
+Acyclovir,Capsule,"Aqua Blue,Light Blue",Oblong,"QP,146","QP,146"
+Acyclovir,Tablet,White,Oval,"CTI,113",NA
+Acyclovir,Tablet,White,Round,791,NA
+Acyclovir,Tablet,Pink,Shield,J,"LOGO,49"
+Acyclovir,Tablet,Blue,Oval,J,50
+Acyclovir,Capsule,"Aqua Blue,Light Blue",Oblong,"HP,229","HP,229"
+Acyclovir,Capsule,"Light Blue,Aqua Blue",Oval,"HP,146","HP,146"
+Acyclovir,Tablet,White,Oval,RX505,NA
+Acyclovir,Tablet,White,Oval,HP228,NA
+Gabapentin,Tablet,White,Oblong,"S,G","1,77"
+Gabapentin,Capsule,Yellow,Oblong,SG,180
+Gabapentin,Capsule,White,Oblong,NA,103
+Gabapentin,Capsule,"Light Brown,Orange",Oblong,"LOGO,667","LOGO,667"
+Gabapentin,Capsule,White,Oblong,AHD,100
+Gabapentin,Tablet,White,Oblong,"S,G","1,78"
+Gabapentin,Capsule,Orange,Oblong,NA,214
+Gabapentin,Capsule,Yellow,Oblong,NA,104
+Gabapentin,Capsule,"Caramel,Yellow",Oblong,AHD,300
+Gabapentin,Capsule,Yellow,Oblong,NA,215
+Gabapentin,Capsule,White,Oblong,SG,179
+Gabapentin,Tablet,White,Eliptical,"G,6",NA
+Gabapentin,Tablet,White,Oval,"2,02",NA
+Gabapentin,Tablet,White,Oval,"G,13",NA
+Gabapentin,Tablet,White,Oval,"NT,151",NA
+Gabapentin,Tablet,White,Oblong,"1,2",NA
+Gabapentin,Tablet,White,Eliptical,"O,E",800
+Gabapentin,Tablet,White,Oval,"NT,150",NA
+Gabapentin,Capsule,Buff,Oblong,"IP,102","IP,102"
+Gabapentin,Capsule,"Caramel,Orange",Oblong,AHD,400
+Gabapentin,Capsule,Orange,Oblong,SG,181
+Gabapentin,Tablet,White,Oval,"LOGO,A22",NA
+Gabapentin,Tablet,White,Oval,"LOGO,A21",NA
+Gabapentin,Capsule,"White,Yellow",Oblong,APO,113
+Gabapentin,Capsule,Yellow,Oblong,D,03
+Gabapentin,Tablet,White,Oval,"T,3",NA
+Gabapentin,Capsule,"Light Brown,White",Oblong,"LOGO,665","LOGO,665"
+Gabapentin,Tablet,White,Oval,"ZE,71",NA
+Gabapentin,Tablet,White,Oval,"ZE,72",NA
+Gabapentin,Tablet,White,Oval,"T,1",NA
+Gabapentin,Capsule,Yellow,Oblong,300MG,IG322
+Gabapentin,Tablet,White,Oblong,"1,3",NA
+Gabapentin,Capsule,Orange,Oblong,400MG,IG323
+Gabapentin,Tablet,White,Eliptical,"G,8",NA
+Gabapentin,Tablet,White,Oval,"G,31",NA
+Gabapentin,Capsule,"Light Brown,Yellow",Oblong,"LOGO,2666","LOGO,2666"
+Gabapentin,Capsule,Orange,Oblong,NA,105
+Gabapentin,Capsule,White,Oblong,"IP,101","IP,101"
+Gabapentin,Capsule,White,Oblong,NA,216
+Gabapentin,Capsule,White,Oblong,137,137
+Gabapentin,Capsule,Orange,Oblong,D,04
+Gabapentin,Capsule,Yellow,Oblong,138,138
+Gabapentin,Capsule,"Yellow,White",Oblong,OEB57,300MG
+Gabapentin,Tablet,White,Eliptical,"O,E",600
+Gabapentin,Tablet,"White,Orange",Oblong,APO,114
+Gabapentin,Capsule,Light Caramel,Oblong,"IP,103","IP,103"
+Gabapentin,Capsule,White,Oblong,D,02
+Gabapentin,Capsule,Yellow,Oblong,"NEURONTIN,300MG",PD
+Gabapentin,Capsule,White,Oblong,"NEURONTIN,100MG",PD
+Gabapentin,Tablet,White,Oval,APO,"GAB,600"
+Gabapentin,Tablet,White,Eliptical,"D,25",NA
+Gabapentin,Tablet,White,Eliptical,"D,24",NA
+Gabapentin,Capsule,"Orange,White",Oblong,OEB58,400MG
+Gabapentin,Capsule,White,Oblong,OEB56,100MG
+Gabapentin,Capsule,White,Oblong,100MG,IG321
+Gabapentin,Capsule,Orange,Oblong,139,139
+Gabapentin,Tablet,White,Oval,APO,"GAB,800"
+Gabapentin,Capsule,White,Oblong,APO,112
+Gabapentin,Tablet,White,Eliptical,"NT,16",NA
+Gabapentin,Tablet,White,Eliptical,"G,21",NA
+Gabapentin,Capsule,Orange,Oblong,"NEURONTIN,400MG",PD
+Gabapentin,Tablet,White,Oval,"LOGO,4444",800
+Gabapentin,Capsule,Caramel,Oblong,"IP,103","IP,103"
+Gabapentin,Capsule,Orange,Oblong,G,5028
+Gabapentin,Capsule,White,Oblong,G,5026
+Gabapentin,Tablet,White,Eliptical,"G,22",NA
+Gabapentin,Capsule,Yellow,Oblong,G,5027
+Gabapentin,Tablet,White,Eliptical,"NT,26",NA
+Gabapentin,Tablet,White,Oblong,"LOGO,637",NA
+Gabapentin,Tablet,Light Green,Oblong,"LOGO,636",NA
+Gabapentin,Tablet,White,Oblong,"S,G","1,78"
+Gabapentin,Tablet,White,Oblong,"S,G","1,77"
+Famotidine,Tablet,White,Round,L194,NA
