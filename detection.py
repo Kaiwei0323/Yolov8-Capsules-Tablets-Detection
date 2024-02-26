@@ -117,7 +117,7 @@ def pillPredict(cap):
 
 
 # load models
-pillModel = YOLO("training_results/capsules_tablets_m/weights/best.pt")
+pillModel = YOLO("training_results/capsules_tablets_m2/weights/best.pt")
 
 # object classes
 pillClassNames = ["Capsule", "Tablet"]
