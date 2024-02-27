@@ -88,7 +88,7 @@ def pillPredict(cap):
                     imprint_crop_thresh = convertToGrayScale(imprint_crop)
                     text, score = read_pill_imprint(imprint_crop)
 
-                    cv2.imshow("text", imprint_crop_thresh)
+                    # cv2.imshow("text", imprint_crop_thresh)
 
                     # Display confidence and class name on the bounding box
                     # label = f"{pillClassNames[int(box.cls[0])]} {confidence:.2f}%"
