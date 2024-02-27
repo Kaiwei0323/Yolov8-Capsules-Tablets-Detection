@@ -1,5 +1,16 @@
 # Yolov8 Capsules and Tablets Detection
 
+## Hardware Requirements
+* Nvidia Jetson Orin 16GB
+* SSD 256 GB
+
+## Software Requirements
+* Ubuntu 20.04
+* CUDA 11.4
+* cuDNN 8.4
+* JetPack 5.1.2
+* OpenCV 4.6.0.66
+
 ## Description
 An application using Yolov8 for capsules and tablets detection
 
@@ -37,17 +48,17 @@ An application using Yolov8 for capsules and tablets detection
 
 ## Environment Setup
 ```
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 ```
 
 ## Export to ONNX
 ```
-    python export_yoloV8.py -w training_results/capsules_tablets/weights/best.pt
+    python3 export_yoloV8.py -w training_results/capsules_tablets/weights/best.pt
 ```
 
 ## Detection
 ```
-    python detection.py
+    python3 detection.py
 ```
 
 ## Result
