@@ -4,27 +4,33 @@ import cv2
 import math
 import csv
 from copy import copy
-import easyocr
+
+from paddleocr import PaddleOCR, draw_ocr
+from matplotlib import pyplot as plt
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-reader = easyocr.Reader(['en'], gpu=True)
+
+ocr_model = PaddleOCR(lang="en", use_gpu=True)
 
 def check_valid(input):
-    return all(char.isdigit() or char.isalpha() for char in input)
+    return all(char.isdigit() or char.isalpha() or char == '-' or char == '.' for char in input)
 
 
 def read_pill_imprint(imprint_crop):
-    detections = reader.readtext(imprint_crop)
-    text = ""  # Initialize text with an empty string
-    detected_score = 0  # Initialize score before the loop
-    for detection in detections:
-        bbox, detected_text, detected_score = detection
-        text = detected_text.upper().replace(' ', '')  # Use replace instead of remove
-
-    if check_valid(text):
-        return text, detected_score
-    return 0, 0
-
+    result = ocr_model.ocr(imprint_crop)
+    text = ""
+    if len(result) > 0:
+    	for res in result:
+    	    if res == None:
+    	        continue
+    	    for i in range(len(res)):
+    	        text += res[i][1][0]
+    	        text += ','
+    	        
+    if text == "":
+        return None
+    	        
+    return text[:-1]
 
 
 
@@ -32,11 +38,16 @@ def findMatchingPill(csvFile, pillType, imprint):
     with open(csvFile, 'r') as file:
         csv_reader = csv.reader(file)
         next(csv_reader)
+        pill_list = []
         for row in csv_reader:
             csv_pillName, csv_pillType, csv_Color, csv_Shape, csv_ImprintA, csv_ImprintB = row
             if csv_pillType == pillType and (csv_ImprintA == imprint or csv_ImprintB == imprint):
-                return csv_pillName
-    return "Unknown"
+                if csv_ImprintA == imprint:
+                    pill_list.append([csv_ImprintB, csv_pillName])
+                else:
+                    pill_list.append([csv_ImprintA, csv_pillName])
+                
+    return pill_list
 
 
 def convertToGrayScale(img):
@@ -63,6 +74,7 @@ def pillPredict(cap):
     if ret:
         pillResults = pillModel(frame, stream=True)
         # imprint_detections = []
+        frame_copy = copy(frame)
         for result in pillResults:
             boxes = result.boxes
             for box in boxes:
@@ -74,7 +86,7 @@ def pillPredict(cap):
 
 
                     # put box in cam
-                    cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 3)
+                    cv2.rectangle(frame_copy, (x1, y1), (x2, y2), (255, 0, 0), 3)
 
                     print("Confidence --->", confidence)
 
@@ -86,32 +98,48 @@ def pillPredict(cap):
                     # imprint_detections.append([cls, x1, y1, x2, y2])
                     imprint_crop = copy(frame[y1:y2, x1:x2])
                     imprint_crop_thresh = convertToGrayScale(imprint_crop)
-                    text, score = read_pill_imprint(imprint_crop)
-
-                    # cv2.imshow("text", imprint_crop_thresh)
+                    
+                    text = read_pill_imprint(imprint_crop)
 
                     # Display confidence and class name on the bounding box
                     # label = f"{pillClassNames[int(box.cls[0])]} {confidence:.2f}%"
-                    if score >= 0.4:
+                    
+                    guess = ""
+                    
+                    if text != None:
                         drugType = pillClassNames[cls]
                         imprint = text
                         output = findMatchingPill("pill_database.csv", drugType, imprint)
-                        label = f"{pillClassNames[int(box.cls[0])]}: {output} ({imprint})"
+                        if len(output) == 0:
+                            label = f"{pillClassNames[int(box.cls[0])]}: Unknown({imprint})"
+                        else:
+                            label = f"{pillClassNames[int(box.cls[0])]}: "
+                            for out in output:
+                                if out[0] == "NA":
+                                    label += f"{out[1]},"
+                                else:
+                                    guess += f"{out[0]}:{out[1]}\n"
+                            label = label[:-1]
+                            if len(guess) != 0:
+                                guess = guess[:-1]
                     else:
                         label = f"{pillClassNames[int(box.cls[0])]}"
-
+                  
+                  
                     # object details
-                    org = [x1, y1]
+                    org1 = (x1, y1)
+                    org2 = (x2, y2)
                     font = cv2.FONT_HERSHEY_SIMPLEX
                     fontScale = 1
                     color = (255, 0, 0)
                     thickness = 2
 
-                    cv2.putText(frame, label, org, font, fontScale, color, thickness)
+                    cv2.putText(frame_copy, label, org1, font, fontScale, color, thickness)
+                    cv2.putText(frame_copy, guess, org2, font, fontScale, color, thickness)
 
 
 
-        cv2.imshow('Webcam', frame)
+        cv2.imshow('Webcam', frame_copy)
 
 
 
