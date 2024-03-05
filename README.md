@@ -4,11 +4,11 @@
 An application using Yolov8 for capsules and tablets detection
 
 ## Dataset
-* Training dataset: 15,183 images
+* Training dataset: 18,297 images
 
-* Validation dataset: 547 images
+* Validation dataset: 609 images
 
-* Test dataset: 223 images
+* Test dataset: 260 images
 
 ## Dataset Reference
 ```
@@ -45,6 +45,12 @@ An application using Yolov8 for capsules and tablets detection
     python export_yoloV8.py -w training_results/capsules_tablets/weights/best.pt
 ```
 
+## Model
+```
+    best.onnx
+    Accuracy: 95.2%
+```
+
 ## Detection
 ```
     python detection.py
@@ -52,4 +58,3 @@ An application using Yolov8 for capsules and tablets detection
 
 ## Result
 ![OIP-6-_jpg rf 032ce462539654ebd018c43209707f12](https://github.com/Kaiwei0323/Yolov8-Capsules-Tablets-Detection/assets/91507316/64a6e433-0df6-4910-a270-dd03f37df14b)
-
