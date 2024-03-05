@@ -3,6 +3,9 @@
 ## Description
 An application for running Yolov8 detection using HailoRT and OpenCV on Windows, without TAPPAS dependencies
 
+## Hardware Requirements
+* Hailo-8 AI Accelerator
+
 ## Software Requirements
 * Windows 10
 * Visual Studio 2022
