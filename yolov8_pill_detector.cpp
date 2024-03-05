@@ -173,7 +173,7 @@ hailo_status read_all(hailo_output_vstream output_vstream, std::vector<float32_t
     return HAILO_SUCCESS;
 }
 
-void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, float32_t thr=0.35)
+void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, float32_t thr=0.65)
 {
     size_t index=-1;
     size_t class_idx=0;
@@ -230,7 +230,7 @@ hailo_status post_processing_all(std::vector<float32_t>& data)
             continue;
         }
 
-        print_boxes_coord_per_class(data, std::ref(frameData.frame), 0.50);
+        print_boxes_coord_per_class(data, std::ref(frameData.frame), 0.65);
         
 
     }
