@@ -247,6 +247,10 @@ hailo_status post_processing_all(std::vector<float32_t>& data)
             std::this_thread::sleep_for(std::chrono::milliseconds(30)); // Sleep for a short time if the queue is empty
             continue;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6c5950f034b496d19f5c8fdaf22267b95439cdd
         print_boxes_coord_per_class(data, std::ref(frameData.frame), 0.65);
         
 
