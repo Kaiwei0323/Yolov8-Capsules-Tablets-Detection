@@ -27,9 +27,11 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 ```
 
 ## Detection
+### Default Camera:
 ```
-Default Camera:
   .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=0
-Webcam:
+```
+### Webcam:
+```
   .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=1
 ```
