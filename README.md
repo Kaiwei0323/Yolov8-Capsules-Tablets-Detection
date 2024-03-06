@@ -26,12 +26,10 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
   cmake.exe --build build
 ```
 
-## Delete Build
-```
-  rm -r build
-```
-
 ## Detection
 ```
-  .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=1 
+Default Camera:
+  .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=0
+Webcam:
+  .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=1
 ```

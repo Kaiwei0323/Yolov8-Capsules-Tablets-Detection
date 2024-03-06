@@ -38,6 +38,8 @@
 #define MAX_BATCH (64)
 #define FRAME_WIDTH (640)
 #define FRAME_HEIGHT (640)
+#define OUTPUT_FRAME_WIDTH (1920)
+#define OUTPUT_FRAME_HEIGHT (1080)
 
 uint8_t *dst_data[MAX_EDGE_LAYERS][MAX_BATCH] = {NULL};
 extern unsigned int box_index;
@@ -119,10 +121,15 @@ l_exit:
     return status;
 }
 
+
+void resizeFunction(cv::Mat& inputFrame, cv::Mat& outputFrame, cv::Size targetSize) {
+    cv::resize(inputFrame, outputFrame, targetSize, 1);
+}
+
 hailo_status write_all(hailo_input_vstream input_vstream, std::string video_path)
 {
     hailo_status status = HAILO_UNINITIALIZED;
-    size_t input_frame_size = 0; 
+    size_t input_frame_size = 0;
     hailo_input_vstream vstream = input_vstream;
     cv::Mat org_frame;
 
@@ -133,28 +140,38 @@ hailo_status write_all(hailo_input_vstream input_vstream, std::string video_path
     status = hailo_get_input_vstream_frame_size(vstream, &input_frame_size);
 
     cv::Size target_size(FRAME_HEIGHT, FRAME_WIDTH);
+    cv::Size output_target_size(OUTPUT_FRAME_WIDTH, OUTPUT_FRAME_HEIGHT);
+
     while (true) {
-        cap >> org_frame; 
-      
+        cap >> org_frame;
         if (org_frame.empty()) {
             std::cerr << "Error: Unable to capture frame." << std::endl;
             break;
         }
 
-         // Add the frame to the queue
+        cv::Mat resizedOutput1, resizedOutput2;
+
+        // Perform asynchronous resizing using cv::parallel_for_
+        cv::parallel_for_(cv::Range(0, 2), [&](const cv::Range& range) {
+            for (int i = range.start; i < range.end; ++i) {
+                if (i == 0)
+                    resizeFunction(org_frame, resizedOutput1, target_size);
+                else
+                    resizeFunction(org_frame, resizedOutput2, output_target_size);
+            }
+        });
+        // Add the frame to the queue
         {
             std::lock_guard<std::mutex> lock(queueMutex);
-            frameQueue.push({org_frame});
+            frameQueue.push({ resizedOutput2 });
         }
 
-         cv::resize(org_frame, org_frame, target_size, 1);
-
-        status = hailo_vstream_write_raw_buffer(vstream, org_frame.data, input_frame_size);
-    
+        // Use resizedOutput1 for writing the raw buffer
+        status = hailo_vstream_write_raw_buffer(vstream, resizedOutput1.data, input_frame_size);
     }
 
     cap.release();
-   
+
     return status;
 }
  
@@ -173,17 +190,17 @@ hailo_status read_all(hailo_output_vstream output_vstream, std::vector<float32_t
     return HAILO_SUCCESS;
 }
 
-void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, float32_t thr=0.35)
+void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, float32_t thr=0.65)
 {
     size_t index=-1;
     size_t class_idx=0;
     while (class_idx<2) {
         auto num_of_class_boxes = data.at(++index);
         for (auto box_idx=0;box_idx<num_of_class_boxes;box_idx++) {
-            auto y_min = data.at(++index)*480;
-            auto x_min = data.at(++index)*FRAME_WIDTH;
-            auto y_max = data.at(++index)*480;
-            auto x_max = data.at(++index)*FRAME_WIDTH;
+            auto y_min = data.at(++index)*OUTPUT_FRAME_HEIGHT;
+            auto x_min = data.at(++index)*OUTPUT_FRAME_WIDTH;
+            auto y_max = data.at(++index)*OUTPUT_FRAME_HEIGHT;
+            auto x_max = data.at(++index)* OUTPUT_FRAME_WIDTH;
             auto confidence = data.at(++index);
             
             if (confidence>=thr) {
@@ -204,7 +221,7 @@ void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, fl
         }
         class_idx++;
     }
-    cv::imshow("Postprocessing Video",frame);
+    cv::imshow("Pill Detection",frame);
     cv::waitKey(10);
 }
 
@@ -213,6 +230,7 @@ hailo_status post_processing_all(std::vector<float32_t>& data)
     auto status = HAILO_SUCCESS;
     FrameData frameData;
     cv::Mat frame;
+    
 
     while(true)
     {
@@ -229,8 +247,7 @@ hailo_status post_processing_all(std::vector<float32_t>& data)
             std::this_thread::sleep_for(std::chrono::milliseconds(30)); // Sleep for a short time if the queue is empty
             continue;
         }
-
-        print_boxes_coord_per_class(data, std::ref(frameData.frame), 0.50);
+        print_boxes_coord_per_class(data, std::ref(frameData.frame), 0.65);
         
 
     }
