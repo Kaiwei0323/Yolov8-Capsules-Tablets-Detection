@@ -38,8 +38,6 @@
 #define MAX_BATCH (64)
 #define FRAME_WIDTH (640)
 #define FRAME_HEIGHT (640)
-#define OUTPUT_FRAME_WIDTH (1920)
-#define OUTPUT_FRAME_HEIGHT (1080)
 
 uint8_t *dst_data[MAX_EDGE_LAYERS][MAX_BATCH] = {NULL};
 extern unsigned int box_index;
@@ -183,10 +181,10 @@ void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, fl
     while (class_idx<2) {
         auto num_of_class_boxes = data.at(++index);
         for (auto box_idx=0;box_idx<num_of_class_boxes;box_idx++) {
-            auto y_min = data.at(++index)*OUTPUT_FRAME_HEIGHT;
-            auto x_min = data.at(++index)*OUTPUT_FRAME_WIDTH;
-            auto y_max = data.at(++index)*OUTPUT_FRAME_HEIGHT;
-            auto x_max = data.at(++index)* OUTPUT_FRAME_WIDTH;
+            auto y_min = data.at(++index)*480;
+            auto x_min = data.at(++index)*FRAME_WIDTH;
+            auto y_max = data.at(++index)*480;
+            auto x_max = data.at(++index)*FRAME_WIDTH;
             auto confidence = data.at(++index);
             
             if (confidence>=thr) {
