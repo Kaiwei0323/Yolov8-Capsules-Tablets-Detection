@@ -145,7 +145,7 @@ hailo_status write_all(hailo_input_vstream input_vstream, std::string video_path
             break;
         }
 
-        cv::resize(org_frame, org_frame, output_target_size, 1);
+        cv::resize(org_frame, org_frame, output_target_size, cv::INTER_NEAREST);
 
          // Add the frame to the queue
         {
@@ -153,7 +153,7 @@ hailo_status write_all(hailo_input_vstream input_vstream, std::string video_path
             frameQueue.push({org_frame});
         }
 
-        cv::resize(org_frame, org_frame, target_size, 1);
+        cv::resize(org_frame, org_frame, target_size, cv::INTER_CUBIC);
 
         status = hailo_vstream_write_raw_buffer(vstream, org_frame.data, input_frame_size);
     
