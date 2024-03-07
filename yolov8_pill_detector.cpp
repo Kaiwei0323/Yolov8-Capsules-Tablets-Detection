@@ -38,8 +38,8 @@
 #define MAX_BATCH (64)
 #define FRAME_WIDTH (640)
 #define FRAME_HEIGHT (640)
-#define OUTPUT_FRAME_WIDTH (1080)
-#define OUTPUT_FRAME_HEIGHT (1920)
+#define OUTPUT_FRAME_WIDTH (1920)
+#define OUTPUT_FRAME_HEIGHT (1080)
 
 uint8_t *dst_data[MAX_EDGE_LAYERS][MAX_BATCH] = {NULL};
 extern unsigned int box_index;
@@ -135,8 +135,8 @@ hailo_status write_all(hailo_input_vstream input_vstream, std::string video_path
 
     status = hailo_get_input_vstream_frame_size(vstream, &input_frame_size);
 
-    cv::Size target_size(FRAME_HEIGHT, FRAME_WIDTH);
-    cv::Size output_target_size(OUTPUT_FRAME_HEIGHT, OUTPUT_FRAME_WIDTH);
+    cv::Size target_size(FRAME_WIDTH, FRAME_HEIGHT);
+    cv::Size output_target_size(OUTPUT_FRAME_WIDTH, OUTPUT_FRAME_HEIGHT);
     while (true) {
         cap >> org_frame; 
       
@@ -186,10 +186,10 @@ void print_boxes_coord_per_class(std::vector<float32_t> data, cv::Mat& frame, fl
     while (class_idx<2) {
         auto num_of_class_boxes = data.at(++index);
         for (auto box_idx=0;box_idx<num_of_class_boxes;box_idx++) {
-            auto y_min = data.at(++index)*OUTPUT_FRAME_WIDTH;
-            auto x_min = data.at(++index)*OUTPUT_FRAME_HEIGHT;
-            auto y_max = data.at(++index)*OUTPUT_FRAME_WIDTH;
-            auto x_max = data.at(++index)*OUTPUT_FRAME_HEIGHT;
+            auto y_min = data.at(++index)*OUTPUT_FRAME_HEIGHT;
+            auto x_min = data.at(++index)*OUTPUT_FRAME_WIDTH;
+            auto y_max = data.at(++index)*OUTPUT_FRAME_HEIGHT;
+            auto x_max = data.at(++index)*OUTPUT_FRAME_WIDTH;
             auto confidence = data.at(++index);
             
             if (confidence>=thr) {
