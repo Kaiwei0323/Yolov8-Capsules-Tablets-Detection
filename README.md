@@ -33,7 +33,7 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 * Imprint Repairion: LBP
 
 ### Imprint Detection
-*PaddleOCR
+* PaddleOCR
 
 ### Imprint Correction
 * Structure: RNN
