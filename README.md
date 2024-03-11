@@ -14,24 +14,33 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 * OpenCV 4.9.0
 * HailoRT 4.16.0
 
-## Mdoel
-```
-  yolov8m_pill_detector_v2.hef
-  Accuracy: 95.2%
-```
+## Pill Detection
+* Structure: Yolov8m
+* Classes: Capsule, Tablet
 
-## Build
-```
-  cmake.exe -S . -B build -DOpenCV_DIR="C:/opencv/build/x64/vc16/lib"
-  cmake.exe --build build
-```
+## Feature recognition
+### Shape
+* Structure: ResNet-32
+* Classes: Circle, Oval, Oblong
 
-## Detection
-### Default Camera:
+### Color
+* Structure: ResNet-32
+* Classes: White, Yellow, Pink, Orange, Blue, Brown, Green
+
+## Imprint Recognition
+### Image Processing
+* Imprint extraction: MSWT
+* Imprint Repairion: LBP
+
+### Imprint Detection
+
+### Imprint Correction
+* Structure: RNN
+
+## Reference
 ```
-  .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=0
+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9883737/
 ```
-### Webcam:
 ```
-  .\build\debug\yolov8_pill_detector.exe -hef=".\hefs\yolov8m_pill_detector_v2.hef" -video=1
+  https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-ipr.2014.1007
 ```
