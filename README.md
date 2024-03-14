@@ -14,18 +14,18 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 * OpenCV 4.9.0
 * HailoRT 4.16.0
 
-## Pill Detection
-* Structure: Yolov8m
+## Feature recognition
+### Form
+* Structure: Yolov8
 * Classes: Capsule, Tablet
 
-## Feature recognition
 ### Shape
-* Structure: ResNet-32
-* Classes: Circle, Oval, Oblong
+* Structure: Yolov8
+* Classes: Circle, Oval, Oblong, Triangle, Square, Diamond, Pentagon, Hexagon, Octagon
 
 ### Color
-* Structure: ResNet-32
-* Classes: White, Yellow, Pink, Orange, Blue, Brown, Green
+* Structure: Yolov8
+* Classes: White, Yellow, Pink, Orange, Blue, Brown, Green, Red, Purple, Gray, Turquoise, Black
 
 ## Imprint Recognition
 ### Image Processing
@@ -34,6 +34,7 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 
 ### Imprint Detection
 * PaddleOCR
+* Yolov8
 
 ### Imprint Correction
 * Structure: RNN
