@@ -21,7 +21,7 @@ An application for running Yolov8 detection using HailoRT and OpenCV on Windows,
 
 ### Shape
 * Structure: Yolov8
-* Classes: Circle, Oval, Oblong, Triangle, Square, Diamond, Pentagon, Hexagon, Octagon
+* Classes: Circle, Egg, Figure8, Heart, Hexagon, Irregular, Oblong, Octagon, Oval, Pentagon, Rectangle, Square, Triangle, U-shape
 
 ### Color
 * Structure: Yolov8
